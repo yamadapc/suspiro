@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+  margin: 0 auto -200px;
+}
+
+.wrapper {
+  min-height: 100%;
+  margin: 0 auto -200px;
+  height: auto !important;
+}
+
+.footer, .push {
+  height: 200px;
+}
+
+/*.logger {*/
+  /*background-color: #181313;*/
+  /*box-shadow: inset 0px 11px 14px -12px black;*/
+  /*color: #B4B4B4;*/
+  /*font-family: monospace;*/
+  /*overflow: scroll;*/
+  /*width: 100%;*/
+/*}*/
+
+/*.browsehappy {*/
+    /*margin: 0.2em 0;*/
+    /*background: #ccc;*/
+    /*color: #000;*/
+    /*padding: 0.2em 0;*/
+/*}*/
+
+/*.row {*/
+  /*padding: 0;*/
+  /*margin: 0;*/
+/*}*/
+
+/*[> Space out content a bit <]*/
+/*body {*/
+    /*background: #2D2D2D;*/
+    /*color: white;*/
+    /*font-family: Helvetica Neue;*/
+/*}*/
+
+/*.coverage-stats {*/
+  /*padding: 0;*/
+
+  /*table.coverage-stats-files {*/
+    /*width: 100%;*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+
+    /*tr {*/
+      /*border-right: inset 1px #ccc;*/
+      /*border-bottom: inset 1px #ccc;*/
+    /*}*/
+
+    /*td {*/
+      /*padding: 0.2em;*/
+      /*padding-left: 0.4em;*/
+    /*}*/
+
+    /*.coverage-stats-percentage {*/
+      /*text-align: right;*/
+    /*}*/
+  /*}*/
+/*}*/
+
+/*.test-suites {*/
+  /*padding: 0;*/
+
+  /*> ul {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+  /*}*/
+/*}*/
+
+/*li {*/
+  /*border: solid 1px white;*/
+  /*list-style: none;*/
+/*}*/
+
+/*li.suite-wrapper {*/
+  /*font-weight: bold;*/
+/*}*/
+
+/*li.test {*/
+  /*font-weight: normal;*/
+/*}*/
