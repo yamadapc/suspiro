@@ -28,20 +28,6 @@ gulp.task('styles', function() {
   return merge(stylesS, materialUiS);
 });
 
-// CoffeeScript
-gulp.task('coffee', function() {
-  return gulp
-    .src(['app/scripts/**/*.coffee', '!app/scripts/**/*.js'], {
-      base: 'app/scripts'
-    })
-    .pipe(
-      $.coffee({
-        bare: true
-      }).on('error', $.util.log)
-    )
-    .pipe(gulp.dest('app/scripts'));
-});
-
 // Scripts
 gulp.task('scripts', function() {
   return browserify('./app/scripts/app.js')
@@ -72,8 +58,7 @@ gulp.task('images', function() {
     .pipe($.size());
 });
 
-
-
+// UI Tests
 gulp.task('jest', function() {
   var nodeModules = path.resolve('./node_modules');
 
@@ -84,13 +69,10 @@ gulp.task('jest', function() {
     }));
 });
 
-
-
 // Clean
 gulp.task('clean', function(cb) {
   del(['dist/styles', 'dist/scripts', 'dist/images'], cb);
 });
-
 
 // Bundle
 gulp.task('bundle', ['styles', 'scripts', 'bower'], function() {
@@ -145,10 +127,6 @@ gulp.task('watch', ['html', 'bundle', 'serve'], function() {
   gulp.watch('app/*.html', ['html']);
   // Watch .scss files
   gulp.watch('app/styles/**/*.scss', ['styles']);
-  // Watch .jade files
-  gulp.watch('app/template/**/*.jade', ['jade', 'html']);
-  // Watch .coffeescript files
-  gulp.watch('app/scripts/**/*.coffee', ['coffee', 'scripts', 'jest']);
   // Watch .js files
   gulp.watch('app/scripts/**/*.js', ['scripts', 'jest']);
   // Watch image files
