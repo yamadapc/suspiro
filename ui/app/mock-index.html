@@ -10,7 +10,8 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="styles/material-ui-all.css">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
     <!--[if lt IE 10]>
@@ -24,7 +25,7 @@
 
         <div class="row">
           <div class="col-md-3 coverage-stats">
-            <table class="coverage-stats-files">
+            <table class="mui-table coverage-stats-files">
               <tr class="coverage-stats-file">
                 <td class="coverage-stats-filename">add.js</td>
                 <td class="coverage-stats-percentage">80%</td>
@@ -45,30 +46,23 @@
           </div>
 
           <div class="col-md-9 test-suites">
-            <ul>
-              <li class="suite root-suite">
-                <h3 class="suite-title">add.js</h3>
-                <ul>
-                  <li>
-                    <div class="suite">
-                      <h3 class="suite-title">add(x, y)</h3>
-                      <ul class="suite-children">
-                        <li>
-                          <div class="test">
-                            <p class="test-title">add(20, 30) === 30</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li>
-                    <div class="test">
-                      <p class="test-title">gets exposed</p>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+            <table>
+              <tr class="suite root-suite">
+                <td class="title">add.js</td>
+              </tr>
+              <tr class="suite indent-1">
+                <td class="suite-title">add.js</td>
+              </tr>
+              <tr class="suite indent-2">
+                <td class="suite-title">add(x, y)</td>
+              </tr>
+              <tr class="test indent-3">
+                <td class="test-title">add(20, 30) === 30</td>
+              </tr>
+              <tr class="test indent-1">
+                <td class="test-title">add(20, 30) === 30</td>
+              </tr>
+            </table>
           </div>
 
         </div>

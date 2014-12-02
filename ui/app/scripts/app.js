@@ -1,12 +1,7 @@
 'use strict'; /* global document, window */
 var React = window.React = require('react');
 var mountNode = document.getElementById('app');
-
-var mui = require('material-ui');
-
-//function parsePath(path) {
-//return path.split(':');
-//}
+//var mui = require('material-ui');
 
 var Test = React.createClass({
   render: function() {
@@ -36,15 +31,19 @@ var Suite = React.createClass({
   },
 });
 
-React.createElement(Suite, {
-  id: 'add.js',
-  title: 'add.js',
-  root: true,
-  tests: this.state.tests,
-  suites: this.state.suites,
-})
+var CoverageStats = React.createClass({
+  getInitialState: function() {
+    return {};
+  },
 
-var Suspiro = React.createClass({
+  render: function() {
+    return React.createElement('table', {
+      className: 'mui-table'
+    });
+  },
+});
+
+var TestSuiteStats = React.createClass({
   getInitialState: function() {
     var suites = [
       {
@@ -79,6 +78,18 @@ var Suspiro = React.createClass({
     };
   },
 
+  render: function() {
+    return React.createElement(Suite, {
+      id: 'add.js',
+      title: 'add.js',
+      root: true,
+      tests: this.state.tests,
+      suites: this.state.suites,
+    });
+  },
+});
+
+var Suspiro = React.createClass({
   render: function() {
     return React.createElement(
       'div',
