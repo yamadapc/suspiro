@@ -5,17 +5,11 @@ var reactify = require('reactify');
 var del = require('del');
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
-var merge = require('merge-stream');
 var source = require('vinyl-source-stream');
 
 // Styles
 gulp.task('styles', function() {
-  var materialUiS = gulp.src('app/styles/material-ui-all.less')
-    .pipe($.less())
-    .pipe(gulp.dest('dist/styles'))
-    .pipe($.size());
-
-  var stylesS = gulp.src('app/styles/main.scss')
+  return gulp.src('app/styles/main.scss')
     .pipe($.rubySass({
       style: 'expanded',
       precision: 10,
@@ -24,8 +18,6 @@ gulp.task('styles', function() {
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('dist/styles'))
     .pipe($.size());
-
-  return merge(stylesS, materialUiS);
 });
 
 // Scripts

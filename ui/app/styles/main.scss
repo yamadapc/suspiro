@@ -1,3 +1,5 @@
+@import "../bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+
 * {
   margin: 0;
 }
@@ -7,19 +9,25 @@ html, body {
   margin: 0 auto -200px;
 }
 
-td {
-  padding: 0.2em;
-  padding-left: 0.4em;
-}
+table {
+  box-shadow: 0px 0.2px 5px rgba(0, 0, 0, 0.37);
+  width: 100%;
 
-tr {
-  border-right: inset 1px #ccc;
-  border-bottom: inset 1px #ccc;
+  td {
+    padding: 0.2em;
+    padding-left: 0.4em;
+  }
+
+  tr {
+    border: inset 1px #ccc;
+  }
 }
 
 .wrapper {
   min-height: 100%;
   margin: 0 auto -200px;
+  padding-right: 5px;
+  padding-left: 5px;
   height: auto !important;
 }
 
@@ -44,19 +52,16 @@ tr {
 }
 
 .row {
-  margin: 0;
-  padding: 0;
+  margin-right: 0;
 }
 
 .coverage-stats {
   display: inline-block;
-  padding: 0;
   vertical-align: top;
 
   table.coverage-stats-files {
-    margin: 0;
     padding: 0;
-    width: 170px;
+    /*width: 170px;*/
 
     .coverage-stats-percentage {
       text-align: right;
@@ -67,11 +72,6 @@ tr {
 .test-suites {
   display: inline-block;
   padding: 0;
-  width: 80%;
-
-  table {
-    width: 100%;
-  }
 
   .root-suite {
     background-color: #E0E0E0;

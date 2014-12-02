@@ -1,7 +1,6 @@
 'use strict'; /* global document, window */
 var React = window.React = require('react');
 var mountNode = document.getElementById('app');
-//var mui = require('material-ui');
 
 var Test = React.createClass({
   render: function() {
