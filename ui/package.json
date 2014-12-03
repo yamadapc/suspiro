@@ -1,7 +1,9 @@
 {
   "name": "suspiro-ui",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^2.4.1"
+  },
   "devDependencies": {
     "browserify-shim": "^3.8.0",
     "del": "~0.1.3",

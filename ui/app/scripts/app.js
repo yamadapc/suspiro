@@ -1,77 +1,17 @@
 'use strict'; /* global document, window */
+
 var React = window.React = require('react');
+var Suite = require('./suite');
+var CoverageStats = require('./coverage-stats');
+
 var mountNode = document.getElementById('app');
-
-var Test = React.createClass({
-  render: function() {
-    return React.createElement('li', {
-      className: 'test',
-      key: this.props.id,
-    }, this.props.title);
-  },
-});
-
-var Suite = React.createClass({
-  render: function() {
-    var suiteEls = this.props.suites.map(function(suite) {
-      suite.key = suite.id;
-      return React.createElement(Suite, suite);
-    });
-
-    var testEls = this.props.tests.map(function(test) {
-      test.key = test.id;
-      return React.createElement(Test, test);
-    });
-
-    return React.createElement('ul', {
-      className: 'suite',
-      key: this.props.id,
-    }, suiteEls, testEls);
-  },
-});
-
-var CoverageStats = React.createClass({
-  getInitialState: function() {
-    return {};
-  },
-
-  render: function() {
-    return React.createElement('table', {
-      className: 'mui-table'
-    });
-  },
-});
+var mockInputData = require('./mock-input');
 
 var TestSuiteStats = React.createClass({
   getInitialState: function() {
-    var suites = [
-      {
-        id: 'add.js:add(x, y)',
-        title: 'add(x, y)',
-        tests: [
-          {
-            id: 'add.js:add(x, y):add(1, 2) == 3',
-            title: 'add(1, 2) == 3',
-          },
-          {
-            id: 'add.js:add(x, y):add(10, 12) == 22',
-            title: 'add(10, 12) == 22',
-          },
-        ],
-        suites: [],
-      },
-    ];
-
-    var tests = [
-      {
-        id: 'add.js:gets exposed',
-        title: 'gets exposed',
-      },
-    ];
-
     return {
-      suites: suites,
-      tests: tests,
+      suites: mockInputData.suites,
+      tests: mockInputData.tests,
       passing: true,
       text: '',
     };
@@ -82,24 +22,27 @@ var TestSuiteStats = React.createClass({
       id: 'add.js',
       title: 'add.js',
       root: true,
-      tests: this.state.tests,
       suites: this.state.suites,
+      tests: this.state.tests,
     });
   },
 });
 
 var Suspiro = React.createClass({
   render: function() {
-    return React.createElement(
-      'div',
-      {
-        className: 'wrapper'
+    var coverageStats = React.createElement('div', {
+      className: 'col-md-3 coverage-stats',
+    }, React.createElement(CoverageStats, {}));
+
+    var testSuites = React.createElement('div', {
+      className: 'col-md-9 test-suites',
+    }, React.createElement(TestSuiteStats, {}));
+
+    return React.createElement('div', {
+        className: 'row'
       },
-      React.createElement(CoverageStats, {
-        label: 'Default Label'
-      }),
-      React.createElement(TestSuiteStats, {
-      })
+      coverageStats,
+      testSuites
     );
   },
 });
@@ -108,3 +51,4 @@ React.render(
   React.createElement(Suspiro),
   mountNode
 );
+
